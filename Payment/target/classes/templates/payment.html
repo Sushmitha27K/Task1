@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .payment-form {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .payment-form h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="payment-form">
+            <h2>Payment Details</h2>
+            <form th:action="@{/api/payments}" method="post">
+                <div class="form-group">
+                    <label for="orderId">Order ID</label>
+                    <input type="text" class="form-control" id="orderId" name="orderId" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <input type="number" step="0.01" class="form-control" id="amount" name="amount" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Payment</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
